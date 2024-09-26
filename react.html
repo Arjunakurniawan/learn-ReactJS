@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>learn react basic</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- REACT -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <!-- REACT FOR WEB -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- BABEL -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = document.getElementById("root");
+
+      let counter = 0;
+
+      function ButtonCounter() {
+        const [counter, setcounter] = React.useState(0);
+
+        function onButtonPlus() {
+          setcounter(counter + 1);
+        }
+
+        function onButtonMinus() {
+          setcounter(counter + -1);
+        }
+
+        return (
+          <>
+            <input type="input" placeholder="masukkan angka" />
+            <p>{counter}</p>
+            <button onClick={onButtonPlus}>+</button>
+            <button onClick={onButtonMinus}>-</button>
+          </>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <ButtonCounter />
+          </>
+        );
+      }
+      //render react
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
