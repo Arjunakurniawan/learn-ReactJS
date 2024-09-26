@@ -22,7 +22,53 @@
 
       let counter = 0;
 
-      function ButtonCounter() {
+      function CalculatorApp() {
+        const [Angka1, setAngka1] = React.useState(0);
+        const [Angka2, setAngka2] = React.useState(0);
+        const [hasil, sethasil] = React.useState(0);
+
+        function onChangeAngka1(event) {
+          setAngka1(parseInt(event.target.value));
+        }
+        function onChangeAngka2(event) {
+          setAngka2(parseInt(event.target.value));
+        }
+
+        function onClickPlus() {
+          sethasil(Angka1 + Angka2);
+        }
+
+        return (
+          <>
+            <input
+              type="number"
+              value={Angka1}
+              onChange={onChangeAngka1}
+              placeholder="masukkan angka ke1"
+            />
+            <input
+              type="number"
+              value={Angka2}
+              onChange={onChangeAngka2}
+              placeholder="masukkan angka ke2"
+            />
+            <button onClick={onClickPlus}>tambah</button>
+            <p>hasil : {hasil}</p>
+          </>
+        );
+      }
+
+      function Navbar() {
+        return (
+          <>
+            <a href="#">home</a>
+            <a href="#">product</a>
+            <a href="#">about</a>
+          </>
+        );
+      }
+
+      function CounterApp() {
         const [counter, setcounter] = React.useState(0);
 
         function onButtonPlus() {
@@ -35,7 +81,6 @@
 
         return (
           <>
-            <input type="input" placeholder="masukkan angka" />
             <p>{counter}</p>
             <button onClick={onButtonPlus}>+</button>
             <button onClick={onButtonMinus}>-</button>
@@ -46,7 +91,9 @@
       function App() {
         return (
           <>
-            <ButtonCounter />
+            <Navbar />
+            <CounterApp />
+            <CalculatorApp />
           </>
         );
       }
